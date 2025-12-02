@@ -1,46 +1,68 @@
 const todoInput = document.querySelector(".todo__input");
 const btn = document.querySelector(".btn");
 const todoTask = document.querySelector(".todo__task");
-const delTask = document.querySelector(".delete-btn");
 const emptyDesc = document.querySelector(".empty__desc");
+const createdCounter = document.querySelector(".created .counter");
+const doneCounter = document.querySelector(".done .counter");
 
 // Добавление задачи
 btn.addEventListener("click", addTask);
 
 function addTask(e) {
-  if (todoInput.value === "") {
-    alert("Пустая строка!");
-  } else {
-    const taskHTML = ` <li class="todo__task-item">
-              <input class="task-checkbox" type="checkbox" >
-              <span class="task-text">${todoInput.value}</span>
-    <button class="delete-btn" data-action="delete">
-                <img class="delete-icon" src="/img/delete-trash.svg" alt="">
-              </button>
-            </li>`;
+  e.preventDefault();
 
-    todoTask.insertAdjacentHTML("beforeend", taskHTML);
+  if (todoInput.value.trim() === "") {
+    alert("Пустая строка!");
+    return;
   }
-  //Очистка поля ввода
+
+  const taskHTML = `
+    <li class="todo__task-item">
+      <input type="checkbox" class="task-checkbox">
+      <span class="task-text">${todoInput.value}</span>
+      <button class="delete-btn" data-action="delete" aria-label="Удалить задачу">
+        <img class="delete-icon" src="/img/delete-trash.svg" alt="">
+      </button>
+    </li>
+  `;
+
+  todoTask.insertAdjacentHTML("beforeend", taskHTML);
   todoInput.value = "";
-  // Фокус на поле ввода
   todoInput.focus();
-  // Проверка, если в списке задач более 0 элемента,скрываем его.
+
+  updateCounters();
+
   if (todoTask.children.length > 0) {
     emptyDesc.classList.add("none");
   }
 }
 
 // Удаление задачи
-todoTask.addEventListener("click", deleteTask);
+todoTask.addEventListener("click", function (e) {
+  if (e.target.closest('[data-action="delete"]')) {
+    e.target.closest(".todo__task-item").remove();
+    updateCounters();
 
-function deleteTask(e) {
-  if (e.target.dataset.action === "delete") {
-    const parentNode = e.target.closest(".todo__task-item");
-    parentNode.remove();
+    if (todoTask.children.length === 0) {
+      emptyDesc.classList.remove("none");
+    }
   }
-  // Проверка, если в списке задач более нет элемента,открываем его.
-  if (todoTask.children.length === 0) {
-    emptyDesc.classList.remove("none");
+});
+
+// Отметка задачи как выполненной
+todoTask.addEventListener("change", function (e) {
+  if (e.target.classList.contains("task-checkbox")) {
+    updateCounters();
   }
+});
+
+// Функция обновления счетчиков
+function updateCounters() {
+  const totalTasks = todoTask.children.length;
+  const completedTasks = document.querySelectorAll(
+    ".task-checkbox:checked"
+  ).length;
+
+  createdCounter.textContent = totalTasks;
+  doneCounter.textContent = `${completedTasks} из ${totalTasks}`;
 }
