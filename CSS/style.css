@@ -73,7 +73,6 @@ body {
   margin: 0 auto;
   max-width: 736px;
   padding: 64px 0 24px;
-  height: 100%;
 }
 .todo__info {
   display: flex;
@@ -82,14 +81,26 @@ body {
 }
 
 .created {
-  margin-right: 486px;
   font-size: 14px;
   font-weight: 700;
   color: #4ea8de;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .done {
   font-size: 14px;
   font-weight: 700;
   color: #8284fa;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+span {
+  border-radius: 50%;
+  background-color: #333333;
+  padding: 2px 8px;
+  color: #d9d9d9;
 }
