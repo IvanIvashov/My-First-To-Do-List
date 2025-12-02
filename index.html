@@ -9,24 +9,29 @@
   </head>
   <body>
     <!-- Черный хедер -->
-    <div class="todo">
+    <header class="header">   
+      <div class="todo">
       <div class="todo_box">
         <img class="logo-img" src="/img/logo-img.svg" alt="" />
         <img class="logo-titile" src="/img/todo.svg" alt="" />
       </div>
-      <!-- Форма ввода -->
-      <div class="todo__row">
-        <input
-          class="todo__input"
-          type="text"
-          required
-          placeholder="Adicione uma nova tarefa"
-        />
-        <div class="todo__btn">
-          <button class="btn">Criar</button>
-          <img class="logo__plus" src="/img/plus.svg" alt="add" />
-        </div>
       </div>
+    </header>
+      <!-- Форма ввода -->
+      <form>
+        <div class="todo__row">
+          <input
+            class="todo__input"
+            type="text"
+            placeholder="Adicione uma nova tarefa"
+            required
+          />
+          <div class="todo__btn">
+            <button class="btn">Criar</button>
+            <img class="logo__plus" src="/img/plus.svg" alt="add" />
+          </div>
+        </div>
+      </form>
       <!-- Основная серая часть -->
       <div class="main__content">
         <div class="todo__menu">
