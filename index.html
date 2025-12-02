@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List</title>
+    <link rel="stylesheet" href="/CSS/reset.css" />
+    <link rel="stylesheet" href="/CSS/style.css" />
+  </head>
+  <body>
+    <div class="todo">
+      <div class="todo_box">
+        <img class="logo-img" src="/img/logo-img.svg" alt="" />
+        <img class="logo-titile" src="/img/todo.svg" alt="" />
+      </div>
+      <div class="todo__row">
+        <input
+          class="todo__input"
+          type="text"
+          required
+          placeholder="Adicione uma nova tarefa"
+        />
+        <div class="todo__btn">
+          <button class="btn">Criar</button>
+          <img class="logo__plus" src="/img/plus.svg" alt="" />
+        </div>
+      </div>
+      <div class="todo__list"></div>
+    </div>
+    <script src="script.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* font-family: "Inter", sans-serif; 
+ font-weight: 400;
+ font-weight: 700;*/
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.todo {
+  padding: 10px;
+  background-color: #0d0d0d;
+  height: 200px;
+  position: relative;
+}
+
+.todo_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-img {
+  margin-right: 12px;
+}
+
+.todo__row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  top: 173px;
+  right: 0;
+  left: 0;
+}
+
+.todo__input {
+  width: 638px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #262626;
+  gap: 8px;
+  color: #f2f2f2;
+}
+
+.btn {
+  color: #f2f2f2;
+  background-color: #1e6f9f;
+  margin-left: 8px;
+  border-radius: 8px;
+  padding: 16px 40px 16px 16px;
+}
+.todo__btn {
+  position: relative;
+}
+.logo__plus {
+  position: absolute;
+  z-index: 3;
+  top: 18px;
+  left: 58px;
+  margin-left: 8px;
+}
+
+.todo__list {
+  background-color: #333333;
+  height: 100%;
+  width: 100%;
+  /* position: relative; */
+}
